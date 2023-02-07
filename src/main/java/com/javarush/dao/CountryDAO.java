@@ -16,6 +16,6 @@ public class CountryDAO {
     public List<Country> getAll(){
         return sessionFactory
                 .getCurrentSession()
-                .createQuery("from Country", Country.class).list();
+                .createQuery("select c from Country c join fetch c.languages", Country.class).list();
     }
 }
