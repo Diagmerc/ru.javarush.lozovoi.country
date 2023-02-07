@@ -1,36 +1,66 @@
 package com.javarush.domain;
 
+import jakarta.persistence.*;
+
+import java.math.BigDecimal;
+import java.util.Set;
+
+@Entity
+@Table(schema = "world", name = "country")
 public class Country {
 
-    private int id;
+    @Id
+    @Column(name = "id")
+    private Integer id;
 
+    @Column(name = "code")
     private String code;
 
-    private String code_2;
+    @Column(name = "code_2")
+    private String code2;
 
+    @Column(name = "name")
     private String name;
 
-    private int continent;
+    @Column(name = "continent")
+    @Enumerated(EnumType.ORDINAL)
+    private Continent continent;
 
+    @Column(name = "region")
     private String region;
 
-    private Double surface_area;
+    @Column(name = "surface_area")
+    private BigDecimal surfaceArea;
 
-    private int indepYear;
+    @Column(name = "idep_year")
+    private Short independenceYear;
 
+    @Column(name = "population")
     private int population;
 
-    private Double lifeExpectancy;
+    @Column(name = "life_expectancy")
+    private BigDecimal lifeExpectancy;
 
-    private Double gnp;
+    @Column(name = "gnp")
+    private BigDecimal GNP;
 
-    private Double gnpoId;
+    @Column(name = "ghnpo_id")
+    private BigDecimal GNPOId;
 
+    @Column(name = "local_name")
     private String localName;
 
+    @Column(name = "government_form")
     private String governmentForm;
 
+    @Column(name = "head_of_state")
     private String headOfState;
 
-    private int capital;
+    @OneToOne
+    @JoinColumn(name = "capital")
+    private City city;
+
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "country_id")
+    private Set<CountryLanguage> languages;
 }
