@@ -24,4 +24,44 @@ public class CountryLanguage {
     private boolean isOfficial;
 
     private BigDecimal percentage;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Country getCountry() {
+        return country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    public boolean isOfficial() {
+        return isOfficial;
+    }
+
+    public void setOfficial(boolean official) {
+        isOfficial = official;
+    }
+
+    public BigDecimal getPercentage() {
+        return percentage;
+    }
+
+    public void setPercentage(BigDecimal percentage) {
+        this.percentage = percentage;
+    }
 }
